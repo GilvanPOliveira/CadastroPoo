@@ -13,13 +13,12 @@ public class Main_02 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Repositórios
         PessoaFisicaRepo repoPessoaFisica = new PessoaFisicaRepo();
         PessoaJuridicaRepo repoPessoaJuridica = new PessoaJuridicaRepo();
 
         boolean continuar = true;
         while (continuar) {
-            System.out.println("\n==========================");
+            System.out.println("==========================");
             System.out.println("1 - Incluir Pessoa");
             System.out.println("2 - Alterar Pessoa");
             System.out.println("3 - Excluir Pessoa");
@@ -28,7 +27,7 @@ public class Main_02 {
             System.out.println("6 - Persistir dados");
             System.out.println("7 - Recuperar dados");
             System.out.println("0 - Finalizar Programa");
-            System.out.println("==========================\n");
+            System.out.println("==========================");
             int opcao = scanner.nextInt();
 
             switch (opcao) {
@@ -46,16 +45,12 @@ public class Main_02 {
     }
 
     private static void incluir(Scanner scanner, PessoaFisicaRepo repoPessoaFisica, PessoaJuridicaRepo repoPessoaJuridica) {
-        System.out.println("\nSelecione o tipo de pessoa: ");
-        System.out.println("F - Pessoa Fisica");
-        System.out.println("J - Pessoa Juridica\n");
+        System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
         String tipo = scanner.next();
 
-        scanner.nextLine(); // Limpa o buffer
-
-        System.out.println("\nDigite o ID da pessoa:");
+        System.out.println("Digite o ID da pessoa:");
         int id = scanner.nextInt();
-        System.out.println("\nInserindo Dados...");
+        System.out.println("Insira os Dados...");
 
         if (tipo.equalsIgnoreCase("F")) {
             System.out.println("Nome:");
@@ -66,7 +61,7 @@ public class Main_02 {
             int idade = scanner.nextInt();
             PessoaFisica pessoaFisica = new PessoaFisica(id, nome, cpf, idade);
             repoPessoaFisica.inserir(pessoaFisica);
-            pessoaFisica.exibir(); // Mostra os dados inseridos
+            pessoaFisica.exibir(); 
         } else if (tipo.equalsIgnoreCase("J")) {
             System.out.println("Nome:");
             String nome = scanner.next();
@@ -74,19 +69,17 @@ public class Main_02 {
             String cnpj = scanner.next();
             PessoaJuridica pessoaJuridica = new PessoaJuridica(id, nome, cnpj);
             repoPessoaJuridica.inserir(pessoaJuridica);
-            pessoaJuridica.exibir(); // Mostra os dados inseridos
+            pessoaJuridica.exibir(); 
         } else {
             System.out.println("Opcao invalida.");
         }
    }
 
     private static void alterar(Scanner scanner, PessoaFisicaRepo repoPessoaFisica, PessoaJuridicaRepo repoPessoaJuridica) {
-        System.out.println("\nSelecione o tipo de pessoa: ");
-        System.out.println("F - Pessoa Fisica");
-        System.out.println("J - Pessoa Juridica\n");
+        System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
         String tipo = scanner.next();
 
-        System.out.println("\nDigite o ID da pessoa:");
+        System.out.println("Digite o ID da pessoa:");
         int id = scanner.nextInt();
 
         switch (tipo.toUpperCase()) {
@@ -96,9 +89,9 @@ public class Main_02 {
                     System.out.println("Dados atuais:");
                     pessoaFisica.exibir();
                     
-                    scanner.nextLine(); // Limpa o buffer
+                    scanner.nextLine(); 
                     
-                    System.out.println("\nDigite o novo nome:");
+                    System.out.println("Digite o novo nome:");
                     String nome = scanner.nextLine();
                     System.out.println("Digite o novo CPF:");
                     String cpf = scanner.nextLine();
@@ -110,7 +103,7 @@ public class Main_02 {
                     pessoaFisica.setIdade(idade);
                     
                     repoPessoaFisica.alterar(pessoaFisica);
-                    pessoaFisica.exibir(); // Mostra os dados alterados
+                    pessoaFisica.exibir();
                 } else {
                     System.out.println("Pessoa fisica nao encontrada.");
                 }
@@ -121,9 +114,9 @@ public class Main_02 {
                     System.out.println("Dados atuais:");
                     pessoaJuridica.exibir();
                     
-                    scanner.nextLine(); // Limpa o buffer
+                    scanner.nextLine();
                     
-                    System.out.println("\nDigite o novo nome:");
+                    System.out.println("Digite o novo nome:");
                     String nome = scanner.nextLine();
                     System.out.println("Digite o novo CNPJ:");
                     String cnpj = scanner.nextLine();
@@ -132,7 +125,7 @@ public class Main_02 {
                     pessoaJuridica.setCnpj(cnpj);
                     
                     repoPessoaJuridica.alterar(pessoaJuridica);
-                    pessoaJuridica.exibir(); // Mostra os dados alterados
+                    pessoaJuridica.exibir(); 
                 } else {
                     System.out.println("Pessoa juridica nao encontrada.");
                 }
@@ -142,12 +135,10 @@ public class Main_02 {
     }
 
     private static void excluir(Scanner scanner, PessoaFisicaRepo repoPessoaFisica, PessoaJuridicaRepo repoPessoaJuridica) {
-        System.out.println("\nSelecione o tipo de pessoa: ");
-        System.out.println("F - Pessoa Fisica");
-        System.out.println("J - Pessoa Juridica\n");
+        System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
         String tipo = scanner.next();
 
-        System.out.println("\nDigite o ID da pessoa:");
+        System.out.println("Digite o ID da pessoa:");
         int id = scanner.nextInt();
         
         switch (tipo.toUpperCase()) {
@@ -158,12 +149,10 @@ public class Main_02 {
     }
 
     private static void exibirPorId(Scanner scanner, PessoaFisicaRepo repoPessoaFisica, PessoaJuridicaRepo repoPessoaJuridica) {
-        System.out.println("\nSelecione o tipo de pessoa: ");
-        System.out.println("F - Pessoa Fisica");
-        System.out.println("J - Pessoa Juridica\n");
+        System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
         String tipo = scanner.next();
 
-        System.out.println("\nDigite o ID da pessoa:");
+        System.out.println("Digite o ID da pessoa:");
         int id = scanner.nextInt();
 
         switch (tipo.toUpperCase()) {
@@ -188,20 +177,18 @@ public class Main_02 {
     }
 
     private static void exibirTodos(Scanner scanner, PessoaFisicaRepo repoPessoaFisica, PessoaJuridicaRepo repoPessoaJuridica) {
-        System.out.println("\nSelecione o tipo de pessoa: ");
-        System.out.println("F - Pessoa Fisica");
-        System.out.println("J - Pessoa Juridica\n");
+        System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
         String tipo = scanner.next();
 
         switch (tipo.toUpperCase()) {
             case "F" -> {
-                System.out.println("\nPessoas Fisicas:");
+                System.out.println("Pessoas Fisicas:");
                 for (PessoaFisica pessoa : repoPessoaFisica.obterTodos()) {
                     pessoa.exibir();
                 }
             }
             case "J" -> {
-                System.out.println("\nPessoas Juridicas:");
+                System.out.println("Pessoas Juridicas:");
                 for (PessoaJuridica pessoa : repoPessoaJuridica.obterTodos()) {
                     pessoa.exibir();
                 }
@@ -212,11 +199,11 @@ public class Main_02 {
 
     private static void salvarDados(Scanner scanner, PessoaFisicaRepo repoPessoaFisica, PessoaJuridicaRepo repoPessoaJuridica) {
         try {
-            System.out.println("\nDigite o prefixo dos arquivos:");
+            System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
             String prefixo = scanner.next();
             repoPessoaFisica.persistir(prefixo + ".fisica.bin");
             repoPessoaJuridica.persistir(prefixo + ".juridica.bin");
-            System.out.println("\nDados salvos com sucesso.");
+            System.out.println("Dados salvos com sucesso.");
         } catch (IOException e) {
             System.out.println("Erro ao salvar os dados: " + e.getMessage());
         }
@@ -224,11 +211,11 @@ public class Main_02 {
 
     private static void recuperarDados(Scanner scanner, PessoaFisicaRepo repoPessoaFisica, PessoaJuridicaRepo repoPessoaJuridica) {
         try {
-            System.out.println("\nDigite o prefixo dos arquivos:");
+            System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
             String prefixo = scanner.next();
             repoPessoaFisica.recuperar(prefixo + ".fisica.bin");
             repoPessoaJuridica.recuperar(prefixo + ".juridica.bin");
-            System.out.println("\nDados recuperados com sucesso.");
+            System.out.println("Dados recuperados com sucesso.");
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro ao recuperar os dados: " + e.getMessage());
         }
