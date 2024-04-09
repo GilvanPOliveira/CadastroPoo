@@ -9,7 +9,7 @@ git clone https://github.com/GilvanPOliveira/CadastroPoo.git
 Ou, fazendo o download ZIP do prjeto, e abrindo ele pelo NetBeans (pograma indcado).
 
 ## Uso
-Apenas didático, sem backend ou frontend, apenas executavél no próprio programa.
+Apenas didático, sem backend ou frontend, apenas executável no próprio programa.
 
 ## Status do Projeto
 O projeto está finalizado.
